@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-10-19 Sun 12:49 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>@asbtractmethod and @override in Python</title>
+<meta name="author" content="Osic Kwon" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<style> body { font-size: 1.00em; font-family: sans-serif; } </style>
+<style> h1, h2 { margin-top: 3em !important; border-bottom: 1px solid black !important;} </style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">@asbtractmethod and @override in Python</h1>
+
+
+
+<div id="outline-container-org288bf85" class="outline-2">
+<h2 id="org288bf85"><span class="section-number-2">1.</span> Abstract Base Class (ABC) with Override Decorator</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-orga00d944" class="outline-3">
+<h3 id="orga00d944"><span class="section-number-3">1.1.</span> Abstract Base Class (ABC)</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Abstract Base Classes (ABCs) in Python are a way to define interfaces when other techniques like duck typing are not sufficient.
+</p>
+
+<blockquote>
+<p>
+Duck typing is a concept related to dynamic typing in programming languages. It means that the type or class of an object is less important than the methods it defines or the way it behaves.
+</p>
+</blockquote>
+
+<p>
+They allow us to create a blueprint for other classes, ensuring that derived classes implement specific methods.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-python" id="org611a96c"><span style="color: #673AB7;">from</span> abc <span style="color: #673AB7;">import</span> ABC, abstractmethod
+<span style="color: #90A4AE;"> </span>
+<span style="color: #673AB7;">class</span> <span style="color: #673AB7;">StudentBase</span>(ABC):
+        <span style="color: #90A4AE;">"""Abstract base class for Student"""</span>
+        
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@abstractmethod</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">study</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">pass</span>
+<span style="color: #90A4AE;"> </span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@abstractmethod</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">go_to_school</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   ...
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>'pass' or '&#x2026;' is used as a placeholder for method bodies in abstract methods.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge9c71ec" class="outline-3">
+<h3 id="orge9c71ec"><span class="section-number-3">1.2.</span> Override Decorator</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Override decorator is used to <b>indicate</b> that <span class="underline">a method is intended to override a method in a base class</span>. This <span class="underline">helps catch errors</span> where the method signature does not match any method in the base class.
+</p>
+
+<p>
+In this case, the 'Student' class inherits from 'StudentBase' and provides concrete implementations for the abstract methods 'study' and 'go_to_school' with the @override decorator.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python" id="orga6a3397"><span style="color: #673AB7;">from</span> typing <span style="color: #673AB7;">import</span> override
+
+<span style="color: #673AB7;">class</span> <span style="color: #673AB7;">Student</span>(StudentBase):
+        <span style="color: #90A4AE;">""" Subclass implementing abstract methods """</span>
+
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@override</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">study</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">print</span>(<span style="color: #90A4AE;">'studying'</span>)
+
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@override</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">go_to_school</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">print</span>(<span style="color: #90A4AE;">'going to school'</span>)
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The two methods 'study' and 'go_to_school' are implemented in the 'Student' class.</li>
+<li>They must be implemented; otherwise, instantiating 'Student' would raise a TypeError.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgaad319e" class="outline-3">
+<h3 id="orgaad319e"><span class="section-number-3">1.3.</span> Usage Example</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="org-src-container">
+<pre class="src src-python" id="orga4f326a"><span style="color: #263238; font-weight: bold;">osic</span> = Student()
+osic.study()  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">print: studying
+</span>osic.go_to_school()  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">print: going to school</span>
+</pre>
+</div>
+
+<pre class="example">
+studying
+going to school
+</pre>
+</div>
+</div>
+
+
+<div id="outline-container-org4bbca9e" class="outline-3">
+<h3 id="org4bbca9e"><span class="section-number-3">1.4.</span> Full Code</h3>
+<div class="outline-text-3" id="text-1-4">
+<div class="org-src-container">
+<pre class="src src-python" id="orgc2d0ff8">
+<span style="color: #673AB7;">from</span> abc <span style="color: #673AB7;">import</span> ABC, abstractmethod
+<span style="color: #90A4AE;"> </span>
+<span style="color: #673AB7;">class</span> <span style="color: #673AB7;">StudentBase</span>(ABC):
+        <span style="color: #90A4AE;">"""Abstract base class for Student"""</span>
+        
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@abstractmethod</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">study</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">pass</span>
+<span style="color: #90A4AE;"> </span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@abstractmethod</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">go_to_school</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   ...
+
+<span style="color: #673AB7;">from</span> typing <span style="color: #673AB7;">import</span> override
+
+<span style="color: #673AB7;">class</span> <span style="color: #673AB7;">Student</span>(StudentBase):
+        <span style="color: #90A4AE;">""" Subclass implementing abstract methods """</span>
+
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@override</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">study</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">print</span>(<span style="color: #90A4AE;">'studying'</span>)
+
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@override</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">go_to_school</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">print</span>(<span style="color: #90A4AE;">'going to school'</span>)
+
+<span style="color: #263238; font-weight: bold;">osic</span> = Student()
+osic.study()  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">print: studying
+</span>osic.go_to_school()  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">print: going to school
+</span>        
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgfb03268" class="outline-2">
+<h2 id="orgfb03268"><span class="section-number-2">2.</span> Error Example</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org275e7d9" class="outline-3">
+<h3 id="org275e7d9"><span class="section-number-3">2.1.</span> Missing 'study' Method Implementation</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+An abstract metod must be implemented in the derived class. If not, attempting to instantiate the derived class will raise a TypeError.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #673AB7;">import</span> sys
+<span style="color: #673AB7;">import</span> traceback
+
+<span style="color: #673AB7;">from</span> abc <span style="color: #673AB7;">import</span> ABC, abstractmethod
+<span style="color: #673AB7;">from</span> typing <span style="color: #673AB7;">import</span> override
+
+<span style="color: #673AB7;">try</span>:
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">class</span> <span style="color: #673AB7;">StudentBase</span>(ABC):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">@abstractmethod</span>
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">study</span>(<span style="color: #673AB7;">self</span>):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">pass</span>
+
+<span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">class</span> <span style="color: #673AB7;">Student</span>(StudentBase):
+<span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">def</span> <span style="color: #263238; font-weight: bold;">play_game</span>(<span style="color: #673AB7;">self</span>):  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">missing 'study' method
+</span><span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #90A4AE;"> </span>   <span style="color: #673AB7;">print</span>(<span style="color: #90A4AE;">"playing a game"</span>)
+
+<span style="color: #90A4AE;"> </span>   <span style="color: #263238; font-weight: bold;">osic</span> = Student()
+<span style="color: #673AB7;">except</span> <span style="color: #673AB7;">Exception</span>:
+<span style="color: #90A4AE;"> </span>   traceback.print_exc(<span style="color: #673AB7;">file</span>=sys.stdout)
+</pre>
+</div>
+
+<pre class="example">
+Traceback (most recent call last):
+  File "/tmp/babel-NBPiPC/python-mSack2", line 17, in &lt;module&gt;
+    osic = Student()
+TypeError: Can't instantiate abstract class Student without an implementation for abstract method 'study'
+</pre>
+
+
+<ul class="org-ul">
+<li>'study' method is not implemented in the 'Student' class, leading to a TypeError when trying to instantiate it.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org8b95289" class="outline-2">
+<h2 id="org8b95289"><span class="section-number-2">3.</span> AI explanation</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-orgdbf0994" class="outline-3">
+<h3 id="orgdbf0994"><span class="section-number-3">3.1.</span> General</h3>
+<div class="outline-text-3" id="text-3-1">
+<dl class="org-dl">
+<dt>Purpose</dt><dd>It's like a template for behavior in object-oriented programming (OOP). <code>=Grok4-Fast=</code></dd>
+
+<dt>Summary</dt><dd></dd>
+</dl>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Feature</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">`ABC`</td>
+<td class="org-left">Prevents direct instantiation of base class</td>
+</tr>
+
+<tr>
+<td class="org-left">`@abstractmethod`</td>
+<td class="org-left">Enforces implementation in subclasses</td>
+</tr>
+
+<tr>
+<td class="org-left">`@override`</td>
+<td class="org-left">Validates method overrides (Python ≥ 3.12)</td>
+</tr>
+
+<tr>
+<td class="org-left">`&#x2026;`</td>
+<td class="org-left">Equivalent to `pass` (used as a no-op)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<code>=ChatGPT=</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9888a57" class="outline-3">
+<h3 id="org9888a57"><span class="section-number-3">3.2.</span> @abstractmethod</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>A decorator that marks a method as abstract. If a subclass doesn't implement it, you'll get a runtime error when trying to instantiate the subclass. <code>=Grok4-Fast=</code></li>
+
+<li>Abstract classes prevent incomplete implementations, promoting consistent interfaces across subclasses. <code>=Grok4-Fast=</code></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org4df94e6" class="outline-3">
+<h3 id="org4df94e6"><span class="section-number-3">3.3.</span> @override</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>The @override decorator (Python 3.12+) is a nice addition that helps catch errors if you misspell a method name. <code>=Claude Sonet 4.5=</code></li>
+
+<li>It serves a similar purpose to <i>Java’s @Override</i> <code>=Perfelxity=</code></li>
+
+<li>@override is a nice-to-have for maintainable code. <code>=Grok4-Fast=</code></li>
+
+<li>It's <b>optional</b> but improves code documentation and catches errors early. <code>=Grok4-Fast=</code></li>
+
+<li>This helps prevent mistakes (e.g., typos in method names) and is ignored at runtime but useful for static analysis. <code>=Grok4-Fast=</code></li>
+
+<li>If you misspell an overridden method name (e.g., you write studiy()) and mark it with @override, the type checker (like MyPy) will raise an error before runtime, telling you that <code>no method</code> named studiy exists in StudentBase. This prevents silent, <b>hard-to-find bugs</b> during refactoring.  <code>=Gemini 2.5 Flash=</code></li>
+
+<li>In <b>large codebases</b> or <b>frameworks</b> where accidental method mismatches (like typos) can lead to silent broken behavior.  <code>=Perflexity=</code></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgd407c18" class="outline-3">
+<h3 id="orgd407c18"><span class="section-number-3">3.4.</span> Other notes</h3>
+<div class="outline-text-3" id="text-3-4">
+<dl class="org-dl">
+<dt>&#x2026; (Ellipsis)</dt><dd>is used instead of pass; both are valid placeholders for <b>"do nothing."</b> <code>=Grok4-Fast=</code></dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org71be0be" class="outline-2">
+<h2 id="org71be0be"><span class="section-number-2">4.</span> References</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><a href="https://docs.python.org/3/library/abc.html">https://docs.python.org/3/library/abc.html</a></li>
+<li><a href="https://peps.python.org/pep-0698/#include-the-name-of-the-ancestor-class-being-overridden">https://peps.python.org/pep-0698/#include-the-name-of-the-ancestor-class-being-overridden</a></li>
+<li><a href="https://velog.io/@jk01019/python-abc-abc.abstractmethod">https://velog.io/@jk01019/python-abc-abc.abstractmethod</a></li>
+<li><a href="https://medium.com/@changja00/dangling-python-override-438779efc562">https://medium.com/@changja00/dangling-python-override-438779efc562</a></li>
+<li><a href="https://xangmin.tistory.com/161">https://xangmin.tistory.com/161</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>
