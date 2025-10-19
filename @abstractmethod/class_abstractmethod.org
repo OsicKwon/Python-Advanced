@@ -13,10 +13,12 @@
 Abstract Base Class (abc)
 
 
-* Heading
+* Code
 
 
-#+NAME: abstract
+** Abstract Class
+
+#+NAME: Abstract
 #+BEGIN_SRC python :cache no :exports both :results output :session abstract
 from abc import ABC, abstractmethod
  
@@ -30,9 +32,15 @@ class StudentBase(ABC):
         ...
 #+END_SRC
 
-#+RESULTS:
- 
-#+NAME: concrete
+#+RESULTS: Abstract
+
+
+- 'pass' or '...' are used as placeholders for method bodies in abstract methods.
+
+
+** Concrete Class
+
+#+NAME: Concrete
 #+BEGIN_SRC python :cache no :exports both :results output :session abstract
 class Student(StudentBase):
     def study(self):
@@ -42,37 +50,44 @@ class Student(StudentBase):
         print('going to school')
 #+END_SRC
 
-#+RESULTS:
+#+RESULTS: Concrete
 
 
-#+NAME: usage
+
+** Usage Example
+
+#+NAME: Usage
 #+BEGIN_SRC python :cache no :exports both :results output :session abstract
 james = Student()
 james.study()
 james.go_to_school()
 #+END_SRC
 
-#+RESULTS:
+#+RESULTS: Usage
 : studying
 : going to school
 
 
+** Full Code
 
-#+NAME: full_code
+#+NAME: Full_Code
 #+BEGIN_SRC python :cache no :exports both :results output :session abstract :tangle yes :noweb yes
 
-<<abstract>>
+<<Abstract>>
 
-<<concrete>>
+<<Concrete>>
 
-<<usage>>
+<<Usage>>
 	
 #+END_SRC
 
-#+RESULTS: full_code
+#+RESULTS: Full_Code
 : studying
 : going to school
 
+
+
+* AI advice
 
 
 
