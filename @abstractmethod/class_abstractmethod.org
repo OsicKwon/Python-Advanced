@@ -10,7 +10,6 @@
 #+EXCLUDE_TAGS: noexport
 
 
-
 * Abstract Base Class (ABC) with Override Decorator
 
 #+NAME: Abstract_Override_Image
@@ -19,6 +18,7 @@
 #+ATTR_HTML: :width 600
 [[./img/abstract_override.png]]
 # for markdown, add {width=600} in output markdown:
+
 
 ** Abstract Base Class (ABC)
 
@@ -112,6 +112,7 @@ osic.go_to_school()  # print: going to school
 
 * Error Example
 
+
 ** Missing 'study' Method Implementation
 
 An abstract metod must be implemented in the derived class. If not, attempting to instantiate the derived class will raise a TypeError.
@@ -161,6 +162,7 @@ If you mistakenly use the @override decorator on a method that does not match an
 
 * AI explanation 
 
+
 ** General
 
 - Purpose :: It's like a template for behavior in object-oriented programming (OOP). ==Grok4-Fast==
@@ -175,6 +177,7 @@ If you mistakenly use the @override decorator on a method that does not match an
 | `...`             | Equivalent to `pass` (used as a no-op)      |
 
 ==ChatGPT==
+
 
 ** @abstractmethod 
 
