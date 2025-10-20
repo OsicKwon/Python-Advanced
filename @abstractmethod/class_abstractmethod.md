@@ -1,6 +1,6 @@
 # Abstract Base Class (ABC) with Override Decorator
 
-![img](./img/abstract_override.png "Abstract Base Class (ABC) with Override Decorator"){}
+![img](./img/abstract_override.png "Abstract Base Class (ABC) with Override Decorator"){width="600"}
 
 
 ## Abstract Base Class (ABC)
