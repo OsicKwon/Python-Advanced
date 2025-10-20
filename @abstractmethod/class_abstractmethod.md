@@ -1,6 +1,6 @@
 # Abstract Base Class (ABC) with Override Decorator
 
-![img](./img/abstract_override.png "Abstract Base Class (ABC) with Override Decorator")
+![img](./img/abstract_override.png "Abstract Base Class (ABC) with Override Decorator"){}
 
 
 ## Abstract Base Class (ABC)
@@ -69,6 +69,7 @@ osic.go_to_school()  # print: going to school
 ```python
 
 from abc import ABC, abstractmethod
+from typing import override
  
 class StudentBase(ABC):
 	"""Abstract base class for Student"""
@@ -81,7 +82,6 @@ class StudentBase(ABC):
     def go_to_school(self):
         ...
 
-from typing import override
 
 class Student(StudentBase):
 	""" Subclass implementing abstract methods """
@@ -131,7 +131,7 @@ except Exception:
 ```
 
     Traceback (most recent call last):
-      File "/tmp/babel-NBPiPC/python-jMnVdy", line 17, in <module>
+      File "/tmp/babel-NBPiPC/python-hQEACI", line 17, in <module>
         osic = Student()
     TypeError: Can't instantiate abstract class Student without an implementation for abstract method 'study'
 
