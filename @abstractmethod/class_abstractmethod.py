@@ -7,7 +7,7 @@ class StudentBase(ABC):
     @abstractmethod
     def study(self):
         pass
- 
+
     @abstractmethod
     def go_to_school(self):
         ...
