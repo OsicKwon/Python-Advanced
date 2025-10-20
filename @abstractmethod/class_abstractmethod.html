@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2025-10-19 Sun 12:49 -->
+<!-- 2025-10-19 Sun 22:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>@asbtractmethod and @override in Python</title>
@@ -194,7 +194,7 @@
   .org-svg { }
 </style>
 <style> body { font-size: 1.00em; font-family: sans-serif; } </style>
-<style> h1, h2 { margin-top: 3em !important; border-bottom: 1px solid black !important;} </style>
+<style> h2 { margin-top: 3em !important; border-bottom: 1px solid black !important;} </style>
 </head>
 <body>
 <div id="content" class="content">
@@ -202,30 +202,33 @@
 
 
 
-<div id="outline-container-org288bf85" class="outline-2">
-<h2 id="org288bf85"><span class="section-number-2">1.</span> Abstract Base Class (ABC) with Override Decorator</h2>
+<div id="outline-container-orgfde1f72" class="outline-2">
+<h2 id="orgfde1f72"><span class="section-number-2">1.</span> Abstract Base Class (ABC) with Override Decorator</h2>
 <div class="outline-text-2" id="text-1">
+
+<div id="org3db0ee3" class="figure">
+<p><img src="./img/abstract_override.png" alt="abstract_override.png" width="600" />
+</p>
 </div>
-<div id="outline-container-orga00d944" class="outline-3">
-<h3 id="orga00d944"><span class="section-number-3">1.1.</span> Abstract Base Class (ABC)</h3>
+</div>
+
+
+<div id="outline-container-orgeabcf65" class="outline-3">
+<h3 id="orgeabcf65"><span class="section-number-3">1.1.</span> Abstract Base Class (ABC)</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
-Abstract Base Classes (ABCs) in Python are a way to define interfaces when other techniques like duck typing are not sufficient.
+Abstract Base Classes (ABCs) in Python are a way to define interfaces.
+They allow us to create a blueprint for other classes, ensuring that derived classes implement specific methods.
 </p>
 
 <blockquote>
 <p>
-Duck typing is a concept related to dynamic typing in programming languages. It means that the type or class of an object is less important than the methods it defines or the way it behaves.
+Method is a function that is defined inside a class and is associated with the objects of that class.
 </p>
 </blockquote>
 
-<p>
-They allow us to create a blueprint for other classes, ensuring that derived classes implement specific methods.
-</p>
-
-
 <div class="org-src-container">
-<pre class="src src-python" id="org611a96c"><span style="color: #673AB7;">from</span> abc <span style="color: #673AB7;">import</span> ABC, abstractmethod
+<pre class="src src-python" id="orgf5fe017"><span style="color: #673AB7;">from</span> abc <span style="color: #673AB7;">import</span> ABC, abstractmethod
 <span style="color: #90A4AE;"> </span>
 <span style="color: #673AB7;">class</span> <span style="color: #673AB7;">StudentBase</span>(ABC):
         <span style="color: #90A4AE;">"""Abstract base class for Student"""</span>
@@ -247,8 +250,8 @@ They allow us to create a blueprint for other classes, ensuring that derived cla
 </div>
 
 
-<div id="outline-container-orge9c71ec" class="outline-3">
-<h3 id="orge9c71ec"><span class="section-number-3">1.2.</span> Override Decorator</h3>
+<div id="outline-container-org5fd36b3" class="outline-3">
+<h3 id="org5fd36b3"><span class="section-number-3">1.2.</span> Override Decorator</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Override decorator is used to <b>indicate</b> that <span class="underline">a method is intended to override a method in a base class</span>. This <span class="underline">helps catch errors</span> where the method signature does not match any method in the base class.
@@ -259,7 +262,7 @@ In this case, the 'Student' class inherits from 'StudentBase' and provides concr
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="orga6a3397"><span style="color: #673AB7;">from</span> typing <span style="color: #673AB7;">import</span> override
+<pre class="src src-python" id="org2f8123d"><span style="color: #673AB7;">from</span> typing <span style="color: #673AB7;">import</span> override
 
 <span style="color: #673AB7;">class</span> <span style="color: #673AB7;">Student</span>(StudentBase):
         <span style="color: #90A4AE;">""" Subclass implementing abstract methods """</span>
@@ -282,11 +285,11 @@ In this case, the 'Student' class inherits from 'StudentBase' and provides concr
 </div>
 
 
-<div id="outline-container-orgaad319e" class="outline-3">
-<h3 id="orgaad319e"><span class="section-number-3">1.3.</span> Usage Example</h3>
+<div id="outline-container-org02f14c5" class="outline-3">
+<h3 id="org02f14c5"><span class="section-number-3">1.3.</span> Usage Example</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
-<pre class="src src-python" id="orga4f326a"><span style="color: #263238; font-weight: bold;">osic</span> = Student()
+<pre class="src src-python" id="orgac93e4d"><span style="color: #263238; font-weight: bold;">osic</span> = Student()
 osic.study()  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">print: studying
 </span>osic.go_to_school()  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE;">print: going to school</span>
 </pre>
@@ -300,11 +303,11 @@ going to school
 </div>
 
 
-<div id="outline-container-org4bbca9e" class="outline-3">
-<h3 id="org4bbca9e"><span class="section-number-3">1.4.</span> Full Code</h3>
+<div id="outline-container-orgaae2659" class="outline-3">
+<h3 id="orgaae2659"><span class="section-number-3">1.4.</span> Full Code</h3>
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
-<pre class="src src-python" id="orgc2d0ff8">
+<pre class="src src-python" id="org4412ba6">
 <span style="color: #673AB7;">from</span> abc <span style="color: #673AB7;">import</span> ABC, abstractmethod
 <span style="color: #90A4AE;"> </span>
 <span style="color: #673AB7;">class</span> <span style="color: #673AB7;">StudentBase</span>(ABC):
@@ -342,12 +345,12 @@ osic.study()  <span style="color: #90A4AE;"># </span><span style="color: #90A4AE
 </div>
 
 
-<div id="outline-container-orgfb03268" class="outline-2">
-<h2 id="orgfb03268"><span class="section-number-2">2.</span> Error Example</h2>
+<div id="outline-container-orgde52ab3" class="outline-2">
+<h2 id="orgde52ab3"><span class="section-number-2">2.</span> Error Example</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org275e7d9" class="outline-3">
-<h3 id="org275e7d9"><span class="section-number-3">2.1.</span> Missing 'study' Method Implementation</h3>
+<div id="outline-container-orge93091c" class="outline-3">
+<h3 id="orge93091c"><span class="section-number-3">2.1.</span> Missing 'study' Method Implementation</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 An abstract metod must be implemented in the derived class. If not, attempting to instantiate the derived class will raise a TypeError.
@@ -378,7 +381,7 @@ An abstract metod must be implemented in the derived class. If not, attempting t
 
 <pre class="example">
 Traceback (most recent call last):
-  File "/tmp/babel-NBPiPC/python-mSack2", line 17, in &lt;module&gt;
+  File "/tmp/babel-NBPiPC/python-hlqpvw", line 17, in &lt;module&gt;
     osic = Student()
 TypeError: Can't instantiate abstract class Student without an implementation for abstract method 'study'
 </pre>
@@ -389,15 +392,37 @@ TypeError: Can't instantiate abstract class Student without an implementation fo
 </ul>
 </div>
 </div>
+
+
+
+<div id="outline-container-org4cdf69f" class="outline-3">
+<h3 id="org4cdf69f"><span class="section-number-3">2.2.</span> Override Decorator with Typo</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+If you mistakenly use the @override decorator on a method that does not match any method in the base class, it will raise an error during static analysis (e.g., with MyPy).
+</p>
+
+
+<div id="orgbc8a11b" class="figure">
+<p><img src="./img/override_error.png" alt="override_error.png" />
+</p>
+</div>
+
+<ul class="org-ul">
+<li>In line# 17, the method name is misspelled as 'studie' instead of 'study', which will cause a static type checker to raise an error.</li>
+</ul>
+</div>
+</div>
 </div>
 
 
-<div id="outline-container-org8b95289" class="outline-2">
-<h2 id="org8b95289"><span class="section-number-2">3.</span> AI explanation</h2>
+
+<div id="outline-container-orgf07a340" class="outline-2">
+<h2 id="orgf07a340"><span class="section-number-2">3.</span> AI explanation</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgdbf0994" class="outline-3">
-<h3 id="orgdbf0994"><span class="section-number-3">3.1.</span> General</h3>
+<div id="outline-container-org5991d12" class="outline-3">
+<h3 id="org5991d12"><span class="section-number-3">3.1.</span> General</h3>
 <div class="outline-text-3" id="text-3-1">
 <dl class="org-dl">
 <dt>Purpose</dt><dd>It's like a template for behavior in object-oriented programming (OOP). <code>=Grok4-Fast=</code></dd>
@@ -448,8 +473,8 @@ TypeError: Can't instantiate abstract class Student without an implementation fo
 </div>
 </div>
 
-<div id="outline-container-org9888a57" class="outline-3">
-<h3 id="org9888a57"><span class="section-number-3">3.2.</span> @abstractmethod</h3>
+<div id="outline-container-org56771bf" class="outline-3">
+<h3 id="org56771bf"><span class="section-number-3">3.2.</span> @abstractmethod</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>A decorator that marks a method as abstract. If a subclass doesn't implement it, you'll get a runtime error when trying to instantiate the subclass. <code>=Grok4-Fast=</code></li>
@@ -461,8 +486,8 @@ TypeError: Can't instantiate abstract class Student without an implementation fo
 
 
 
-<div id="outline-container-org4df94e6" class="outline-3">
-<h3 id="org4df94e6"><span class="section-number-3">3.3.</span> @override</h3>
+<div id="outline-container-org2e11418" class="outline-3">
+<h3 id="org2e11418"><span class="section-number-3">3.3.</span> @override</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>The @override decorator (Python 3.12+) is a nice addition that helps catch errors if you misspell a method name. <code>=Claude Sonet 4.5=</code></li>
@@ -483,8 +508,8 @@ TypeError: Can't instantiate abstract class Student without an implementation fo
 </div>
 
 
-<div id="outline-container-orgd407c18" class="outline-3">
-<h3 id="orgd407c18"><span class="section-number-3">3.4.</span> Other notes</h3>
+<div id="outline-container-org91186e7" class="outline-3">
+<h3 id="org91186e7"><span class="section-number-3">3.4.</span> Other notes</h3>
 <div class="outline-text-3" id="text-3-4">
 <dl class="org-dl">
 <dt>&#x2026; (Ellipsis)</dt><dd>is used instead of pass; both are valid placeholders for <b>"do nothing."</b> <code>=Grok4-Fast=</code></dd>
@@ -495,8 +520,8 @@ TypeError: Can't instantiate abstract class Student without an implementation fo
 
 
 
-<div id="outline-container-org71be0be" class="outline-2">
-<h2 id="org71be0be"><span class="section-number-2">4.</span> References</h2>
+<div id="outline-container-orgba2414c" class="outline-2">
+<h2 id="orgba2414c"><span class="section-number-2">4.</span> References</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><a href="https://docs.python.org/3/library/abc.html">https://docs.python.org/3/library/abc.html</a></li>

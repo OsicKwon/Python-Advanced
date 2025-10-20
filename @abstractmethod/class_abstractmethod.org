@@ -3,9 +3,9 @@
 #+AUTHOR: Osic Kwon
 #+EMAIL: osic.kwon@google.com
 #+HTML_HEAD: <style> body { font-size: 1.00em; font-family: sans-serif; } </style>
-#+HTML_HEAD: <style> h1, h2 { margin-top: 3em !important; border-bottom: 1px solid black !important;} </style>
+#+HTML_HEAD: <style> h2 { margin-top: 3em !important; border-bottom: 1px solid black !important;} </style>
 #+OPTIONS: ^:nil toc:nil num:t tags:nil todo:nil stat:nil html-postamble:nil html-preamble:t 
-#+STARTUP: indent show2levels
+#+STARTUP: indent show2levels inlineimages
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
 
@@ -13,16 +13,19 @@
 
 * Abstract Base Class (ABC) with Override Decorator
 
+#+ATTR_ORG: :width 500
+#+ATTR_HTML: :width 600
+[[./img/abstract_override.png]]
+
+
 ** Abstract Base Class (ABC)
 
-Abstract Base Classes (ABCs) in Python are a way to define interfaces when other techniques like duck typing are not sufficient.
-
-#+BEGIN_QUOTE
-Duck typing is a concept related to dynamic typing in programming languages. It means that the type or class of an object is less important than the methods it defines or the way it behaves.
-#+END_QUOTE
-
+Abstract Base Classes (ABCs) in Python are a way to define interfaces.
 They allow us to create a blueprint for other classes, ensuring that derived classes implement specific methods.
 
+#+BEGIN_QUOTE
+Method is a function that is defined inside a class and is associated with the objects of that class.
+#+END_QUOTE
 
 #+NAME: Abstract
 #+BEGIN_SRC python :cache no :exports both :results output :session abstract_override
@@ -68,8 +71,6 @@ class Student(StudentBase):
 #+END_SRC
 
 #+RESULTS: Override
-
-#+RESULTS: Concrete
 
 - The two methods 'study' and 'go_to_school' are implemented in the 'Student' class.
 - They must be implemented; otherwise, instantiating 'Student' would raise a TypeError.
@@ -142,6 +143,18 @@ except Exception:
 : TypeError: Can't instantiate abstract class Student without an implementation for abstract method 'study'
 
 - 'study' method is not implemented in the 'Student' class, leading to a TypeError when trying to instantiate it.
+
+
+
+** Override Decorator with Typo
+
+If you mistakenly use the @override decorator on a method that does not match any method in the base class, it will raise an error during static analysis (e.g., with MyPy).
+
+#+ATTR_ORG: :width 1200
+[[./img/override_error.png]]
+
+- In line# 17, the method name is misspelled as 'studie' instead of 'study', which will cause a static type checker to raise an error.
+
 
 
 * AI explanation 

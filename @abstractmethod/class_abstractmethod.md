@@ -1,13 +1,13 @@
 # Abstract Base Class (ABC) with Override Decorator
 
+![img](./img/abstract_override.png){width=600}
+
 
 ## Abstract Base Class (ABC)
 
-Abstract Base Classes (ABCs) in Python are a way to define interfaces when other techniques like duck typing are not sufficient.
+Abstract Base Classes (ABCs) in Python are a way to define interfaces. They allow us to create a blueprint for other classes, ensuring that derived classes implement specific methods.
 
-> Duck typing is a concept related to dynamic typing in programming languages. It means that the type or class of an object is less important than the methods it defines or the way it behaves.
-
-They allow us to create a blueprint for other classes, ensuring that derived classes implement specific methods.
+> Method is a function that is defined inside a class and is associated with the objects of that class.
 
 ```python
 from abc import ABC, abstractmethod
@@ -131,11 +131,20 @@ except Exception:
 ```
 
     Traceback (most recent call last):
-      File "/tmp/babel-NBPiPC/python-NAkSZ3", line 17, in <module>
+      File "/tmp/babel-NBPiPC/python-U5kfVY", line 17, in <module>
         osic = Student()
     TypeError: Can't instantiate abstract class Student without an implementation for abstract method 'study'
 
 -   'study' method is not implemented in the 'Student' class, leading to a TypeError when trying to instantiate it.
+
+
+## Override Decorator with Typo
+
+If you mistakenly use the @override decorator on a method that does not match any method in the base class, it will raise an error during static analysis (e.g., with MyPy).
+
+![img](./img/override_error.png)
+
+-   In line# 17, the method name is misspelled as 'studie' instead of 'study', which will cause a static type checker to raise an error.
 
 
 # AI explanation
