@@ -1,6 +1,6 @@
 # Abstract Base Class (ABC) with Override Decorator
 
-![img](./img/abstract_override.png){width=600}
+![img](./img/abstract_override.png "Abstract Base Class (ABC) with Override Decorator")
 
 
 ## Abstract Base Class (ABC)
@@ -131,7 +131,7 @@ except Exception:
 ```
 
     Traceback (most recent call last):
-      File "/tmp/babel-NBPiPC/python-U5kfVY", line 17, in <module>
+      File "/tmp/babel-NBPiPC/python-jMnVdy", line 17, in <module>
         osic = Student()
     TypeError: Can't instantiate abstract class Student without an implementation for abstract method 'study'
 
@@ -202,3 +202,4 @@ If you mistakenly use the @override decorator on a method that does not match an
 -   <https://velog.io/@jk01019/python-abc-abc.abstractmethod>
 -   <https://medium.com/@changja00/dangling-python-override-438779efc562>
 -   <https://xangmin.tistory.com/161>
+-   <https://www.sqlpey.com/python/top-10-ways-to-indicate-method-overrides-in-python/>

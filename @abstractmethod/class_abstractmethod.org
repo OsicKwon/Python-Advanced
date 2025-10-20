@@ -13,10 +13,12 @@
 
 * Abstract Base Class (ABC) with Override Decorator
 
+#+NAME: Abstract_Override_Image
+#+CAPTION: Abstract Base Class (ABC) with Override Decorator
 #+ATTR_ORG: :width 500
 #+ATTR_HTML: :width 600
 [[./img/abstract_override.png]]
-
+# for markdown, add {width=600} in output markdown:
 
 ** Abstract Base Class (ABC)
 
@@ -212,6 +214,7 @@ If you mistakenly use the @override decorator on a method that does not match an
 - https://velog.io/@jk01019/python-abc-abc.abstractmethod
 - https://medium.com/@changja00/dangling-python-override-438779efc562
 - https://xangmin.tistory.com/161
+- https://www.sqlpey.com/python/top-10-ways-to-indicate-method-overrides-in-python/
 
 
 * ==CONFIG==                                                        :noexport:
