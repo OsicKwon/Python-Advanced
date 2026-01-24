@@ -1,0 +1,83 @@
+#+TITLE: Refactoring
+#+DATE:[2025-11-06] 
+#+AUTHOR: Osic Kwon
+#+EMAIL: osic.kwon@google.com
+#+HTML_HEAD: <style> body { font-size: 1.00em; font-family: sans-serif; } </style>
+#+HTML_HEAD: <style> h2 { margin-top: 3em !important; border-bottom: 1px solid black !important;} </style>
+#+OPTIONS: ^:nil toc:nil num:t tags:nil todo:nil stat:nil html-postamble:nil html-preamble:t 
+#+STARTUP: indent show2levels inlineimages
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+
+
+* refactoring
+
+#+NAME: refactoring
+#+CAPTION: This is a caption
+#+ATTR_ORG: :width 500
+#+ATTR_HTML: :width 600
+[[./img/abstract_override.png]]
+# for markdown, add {width=600} in output markdown:
+
+
+** extract magic numbers & strings
+# source: Grok
+
+#+NAME: magic_number_bad
+#+BEGIN_SRC python :cache no :exports both :results output :session abstract_override
+def validate_password(password):
+    if len(password) > 7:  # What's 7? Unclear!
+        raise ValueError("Password too long")
+    return True
+#+END_SRC
+
+#+RESULTS: case
+
+#+NAME: magic_number_good
+#+BEGIN_SRC python :cache no :exports both :results output :session abstract_override
+MAX_PASSWORD_LENGTH = 7  # Maximum allowed length for security
+
+def validate_password(password):
+    if len(password) > MAX_PASSWORD_LENGTH:
+        raise ValueError("Password too long")
+    return True
+#+END_SRC
+
+#+RESULTS: magic_number_good
+
+
+* References
+
+#
+
+* ==CONFIG==                                                        :noexport:
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+# Local Variables:
+# org-confirm-babel-evaluate: nil  # come first prior to (org-babel-execute-buffer)
+# org-babel-hash-show-time: t      # Show execution time in results hash >> required ':cache yes'
+# eval: (face-remap-add-relative 'default :height 1.0) 
+# eval: (face-remap-add-relative 'org-level-1 :inherit 'outline-1 :height 1.2 :weight 'bold)
+# eval: (face-remap-add-relative 'org-level-2 :inherit 'outline-2 :height 1.1 :weight 'bold :underline t :extend t)
+# eval: (face-remap-add-relative 'org-level-3 :inherit 'outline-3 :slant 'italic :weight 'bold :box t :background "cyan")
+# eval: (face-remap-add-relative 'org-level-4 :inherit 'outline-4 :underline t)
+# eval: (face-remap-add-relative 'org-level-5 :inherit 'outline-5 :box t :background "#F0F0F0")
+# eval: (face-remap-add-relative 'org-checkbox-done-text :strike-through nil)
+# eval: (face-remap-add-relative 'org-drawer :background "gray")
+# eval: (face-remap-add-relative 'org-table :foreground "darkblue")  # for nano theme
+# eval: (face-remap-add-relative 'org-list-dt :foreground "darkblue" :weight 'bold)  # for nano theme
+# eval: (face-remap-add-relative 'org-block :background "old lace" :underline 'nil)
+# eval: (setq-local org-imenu-depth 3)
+# eval: (setq-local imenu-list-size 0.25)
+# eval: (setq-local imenu-list-position 'left)
+# eval: (olivetti-set-width 0.99)
+# find-file-hook: evil-normal-state
+# End:
+
+# eval: (org-babel-execute-buffer)  # run all code block except for text; For the text block use ':eval no'
+
+_EOF_
+
+
