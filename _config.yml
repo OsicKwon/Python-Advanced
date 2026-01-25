@@ -1,74 +1,37 @@
-# Configurations
-title:            Learning Advanced Python with AI
-longtitle:        Learning Advanced Python with AI asking more
-author:           Osic Kwon
-email:            osic.kwon@gmail.com
+title: minima-reboot
+author: GitHub User
+email: your-email@domain.com
 description: >
-  Let's become an advanced Python professional.
-
-version:          1.0
-gitbook_version:  3.2.3
-
-# url:              'https://sighingnow.github.io'
-# baseurl:          '/jekyll-gitbook'
-# rss:              RSS
-
-# bootstrap: use the remote theme for the site itself
-remote_theme: sighingnow/jekyll-gitbook
-
-toc:
-  enabled: true
-  h_min:   1
-  h_max:   3
-
-# customize the link favicon in header, will be {{site.baseurl}}/{{site.favicon_path}}
-favicon_path:     /assets/gitbook/images/favicon.ico
-
-# markdown render engine.
-markdown:         kramdown
-kramdown:
-  auto_ids:               true
-  input:                  GFM
-  math_engine:            mathjax
-  smart_quotes:           lsquo,rsquo,ldquo,rdquo
-  toc_levels:             1..6
-  syntax_highlighter:     rouge
-  syntax_highlighter_opts:
-    guess_lang:           true
-
-syntax_highlighter_style: colorful
-
-markdown_ext:             markdown,mkdown,mkdn,mkd,md
-
-# Permalinks
-permalink:                /:categories/:year-:month-:day-:title:output_ext
-
-# Disqus comments
-# disqushandler:            sighingnow
-
-exclude:
-  - _drafts
-
-collections:
-  pages:
-    output: true
-    permalink: /:collection/:path/
-  others:
-    output: true
-    permalink: /:collection/:path/
-
-ordered_collections:
-  - posts
-  - pages
-  - others
-
-page_width: 800px
-
-destination:      ./_site
-incremental:      false
-regenerate:       true
+  This is a demo page for minima-reboot, a bootstrap-based rewrite of Jekyll's
+  default minima theme. It is simple, lightweight, and responsive.
+  You can use it with your GitHub Pages site by adding the line
+  "theme: aterenin/minima-reboot" to _config.yml.
 
 plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
   - jekyll-feed
-  - jekyll-readme-index
-  - jemoji
+  - jekyll-redirect-from
+
+minima_reboot:
+  date_format: "%b %-d, %Y"
+  date_format_short: "%b %-d"
+
+header_pages:
+- about.md
+- posts.md
+- github.md
+
+footer_icons:
+- username: aterenin/minima-reboot/
+  url: https://github.com/aterenin/minima-reboot/
+  icon: icon-github.svg
+
+paginate: 5
+
+markdown: kramdown
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - minima-reboot.gemspec

@@ -1,0 +1,95 @@
+#+TITLE: @asbtractmethod in Python
+#+DATE:[2025-10-06 Mon] 
+#+AUTHOR: Osic Kwon
+#+EMAIL: osic.kwon@google.com
+#+HTML_HEAD: <style> body { font-size: 1.00em; font-family: sans-serif; } </style>
+#+HTML_HEAD: <style> h1, h2 { margin-top: 3em !important; border-bottom: 1px solid black !important;} </style>
+#+OPTIONS: ^:nil toc:nil num:t tags:nil todo:nil stat:nil html-postamble:nil html-preamble:t 
+#+STARTUP: indent show2levels
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+
+
+
+* Heading
+
+
+** Starting with basic ggplot
+
+#+BEGIN_SRC python :exports both :results output :session :tangle yes
+from abc import *
+ 
+class StudentBase(metaclass=ABCMeta):
+    @abstractmethod
+    def study(self):
+        pass
+ 
+    @abstractmethod
+    def go_to_school(self):
+        pass
+ 
+class Student(StudentBase):
+    def study(self):
+        print('studying')
+
+	def go_to_school(self):
+        print('going to school')
+#+END_SRC
+
+#+RESULTS:
+
+
+
+#+BEGIN_SRC python :exports both :results output :session :tangle yes
+james = Student()
+james.study()
+#+END_SRC
+
+#+RESULTS:
+
+
+#+BEGIN_SRC python :exports both :results output :session :tangle yes
+def foo():
+    a = 2
+	print(a)
+#+END_SRC
+
+#+RESULTS:
+	
+#+BEGIN_SRC python :exports both :results output :session :tangle yes
+print(foo())
+#+END_SRC
+
+#+RESULTS:
+
+* ==CONFIG==                                                        :noexport:
+:PROPERTIES:
+:VISIBILITY: folded
+:END:
+
+# Local Variables:
+# org-confirm-babel-evaluate: nil  # come first prior to (org-babel-execute-buffer)
+# org-babel-hash-show-time: t      # Show execution time in results hash >> required ':cache yes'
+# eval: (face-remap-add-relative 'default :height 1.0) 
+# eval: (face-remap-add-relative 'org-level-1 :inherit 'outline-1 :height 1.2 :weight 'bold)
+# eval: (face-remap-add-relative 'org-level-2 :inherit 'outline-2 :height 1.1 :weight 'bold :underline t :extend t)
+# eval: (face-remap-add-relative 'org-level-3 :inherit 'outline-3 :slant 'italic :weight 'bold :box t :background "cyan")
+# eval: (face-remap-add-relative 'org-level-4 :inherit 'outline-4 :underline t)
+# eval: (face-remap-add-relative 'org-level-5 :inherit 'outline-5 :box t :background "#F0F0F0")
+# eval: (face-remap-add-relative 'org-checkbox-done-text :strike-through nil)
+# eval: (face-remap-add-relative 'org-drawer :background "gray")
+# eval: (face-remap-add-relative 'org-table :foreground "darkblue")  # for nano theme
+# eval: (face-remap-add-relative 'org-list-dt :foreground "darkblue" :weight 'bold)  # for nano theme
+# eval: (face-remap-add-relative 'org-block :background "old lace" :underline 'nil)
+# eval: (setq-local org-imenu-depth 3)
+# eval: (setq-local imenu-list-size 0.25)
+# eval: (setq-local imenu-list-position 'left)
+# eval: (olivetti-set-width 0.99)
+# find-file-hook: evil-normal-state
+# End:
+
+# eval: (org-babel-execute-buffer)  # run all code block except for text; For the text block use ':eval no'
+
+_EOF_
+
+
