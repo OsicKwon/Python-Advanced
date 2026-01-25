@@ -1,6 +1,6 @@
-title: Advanced Python with AI
-author: Osic Kwon
-email: osic.kwon@gmail.com
+title: minima-reboot
+author: GitHub User
+email: your-email@domain.com
 description: >
   This is a demo page for minima-reboot, a bootstrap-based rewrite of Jekyll's
   default minima theme. It is simple, lightweight, and responsive.
@@ -23,8 +23,7 @@ header_pages:
 - github.md
 
 footer_icons:
-# - username: aterenin/minima-reboot/
-- username: OsicKwon/Python-Advanced/
+- username: aterenin/minima-reboot/
   url: https://github.com/aterenin/minima-reboot/
   icon: icon-github.svg
 
