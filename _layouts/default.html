@@ -12,12 +12,15 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    
+    <!-- Tocbot CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.21.0/dist/tocbot.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="{{ '/' | relative_url }}">Home</a>
-            <a href="{{ '/blog' | relative_url }}">Blog</a>
+            <a href="{{ site.baseurl }}/">Home</a>
+            <a href="{{ site.baseurl }}/blog">Blog</a>
         </nav>
     </header>
 
@@ -41,6 +44,6 @@
     <script src="https://cdn.jsdelivr.net/npm/tocbot@4.21.0/dist/tocbot.min.js"></script>
     
     <!-- Initialize Tocbot -->
-    <script src="{{ '/assets/js/tocbot-init.js' | relative_url }}"></script>
+    <script src="{{ site.baseurl }}/assets/js/tocbot-init.js"></script>
 </body>
 </html>
