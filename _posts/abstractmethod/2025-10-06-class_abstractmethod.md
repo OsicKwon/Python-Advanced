@@ -1,6 +1,6 @@
 ---
 title: "Abstract Base Class (ABC) with Override Decorator"
-layout: post
+layout: default
 ---
 
 Abstract Base Classes (ABCs) in Python are a way to define interfaces. They allow us to create a blueprint for other classes, ensuring that derived classes implement specific methods.
