@@ -1,4 +1,9 @@
-# frozen_string_literal: true
-
 source "https://rubygems.org"
-gemspec
+
+gem "jekyll", "~> 4.3"
+gem "erb"  # Required for Ruby 3.4+
+
+group :jekyll_plugins do
+  gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-sitemap", "~> 1.4"
+end

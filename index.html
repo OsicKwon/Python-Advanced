@@ -1,6 +1,233 @@
 ---
-layout: home
+layout: default
+title: Home
 ---
-<p>
-  Posts
-<p>
+
+<h1>Welcome to {{ site.title }}</h1>
+
+<p>This is a comprehensive Jekyll site with tocbot.js integration for automatic table of contents generation. This page demonstrates the full capabilities of tocbot with extensive content and deeply nested headings.</p>
+
+<h2>Overview</h2>
+
+<p>Jekyll is a powerful static site generator that transforms your plain text into static websites and blogs. When combined with tocbot.js, it provides an excellent platform for creating documentation sites, blogs, and content-rich websites with automatic navigation.</p>
+
+<h3>What Makes This Site Special</h3>
+
+<p>This site showcases several advanced features that make content navigation seamless and user-friendly. The integration of tocbot.js ensures that readers can easily jump to any section of interest, regardless of how long the content becomes.</p>
+
+<h3>Key Benefits</h3>
+
+<p>The combination of Jekyll and tocbot provides numerous advantages for both content creators and readers. Content creators can focus on writing without worrying about manual table of contents generation, while readers benefit from instant navigation capabilities.</p>
+
+<h2>Features</h2>
+
+<p>This Jekyll site comes with a comprehensive set of features designed to enhance the user experience and simplify content management.</p>
+
+<h3>Core Features</h3>
+
+<p>The core feature set includes standard Jekyll functionality enhanced with modern web technologies. These features work together to create a seamless content management and presentation system.</p>
+
+<h4>Static Site Generation</h4>
+
+<p>Jekyll transforms your Markdown files and templates into a complete static website. This means fast loading times, better security, and the ability to host your site on any web server or CDN.</p>
+
+<h4>Markdown Support</h4>
+
+<p>Write your content in Markdown, a simple and intuitive markup language. Jekyll processes your Markdown files and converts them into beautifully formatted HTML pages.</p>
+
+<h4>Template System</h4>
+
+<p>Use Liquid templates to create reusable layouts and includes. This allows you to maintain consistency across your site while keeping your code DRY (Don't Repeat Yourself).</p>
+
+<h3>Advanced Features</h3>
+
+<p>Beyond the basics, this site includes several advanced features that enhance functionality and user experience.</p>
+
+<h4>Automatic Table of Contents</h4>
+
+<p>Tocbot.js automatically generates a table of contents from your page headings. This feature is particularly useful for long-form content, documentation, and blog posts with multiple sections.</p>
+
+<h4>Responsive Design</h4>
+
+<p>The site is fully responsive, meaning it adapts beautifully to any screen size. Whether viewed on a desktop, tablet, or mobile device, the content remains accessible and easy to navigate.</p>
+
+<h4>Syntax Highlighting</h4>
+
+<p>Code blocks are automatically highlighted with syntax coloring, making technical content more readable and professional-looking.</p>
+
+<h2>Getting Started</h2>
+
+<p>Getting started with this Jekyll site is straightforward. Follow these steps to set up your local development environment and start creating content.</p>
+
+<h3>Prerequisites</h3>
+
+<p>Before you begin, make sure you have the necessary tools installed on your system. These are essential for running Jekyll locally.</p>
+
+<h4>Ruby Installation</h4>
+
+<p>Jekyll is built on Ruby, so you'll need Ruby installed on your system. Most modern operating systems come with Ruby pre-installed, but you may need to install a specific version depending on your needs.</p>
+
+<h4>RubyGems Package Manager</h4>
+
+<p>RubyGems is Ruby's package manager, used to install Jekyll and other Ruby gems. It typically comes bundled with Ruby installations.</p>
+
+<h4>Bundler</h4>
+
+<p>Bundler manages your project's dependencies and ensures consistent gem versions across different environments. Install it using: <code>gem install bundler</code></p>
+
+<h3>Installation Steps</h3>
+
+<p>Once you have the prerequisites installed, follow these steps to get your Jekyll site up and running.</p>
+
+<h4>Step 1: Install Dependencies</h4>
+
+<p>Navigate to your project directory and run <code>bundle install</code>. This will install all the required gems specified in your Gemfile, including Jekyll and its plugins.</p>
+
+<h4>Step 2: Start the Development Server</h4>
+
+<p>Run <code>./serve.sh</code> or <code>bundle exec jekyll serve</code> to start the local development server. Jekyll will build your site and make it available at <code>http://localhost:4000</code>.</p>
+
+<h4>Step 3: View Your Site</h4>
+
+<p>Open your web browser and navigate to <code>http://localhost:4000</code>. You should see your Jekyll site with all the tocbot functionality working. Any changes you make to your content will automatically regenerate the site.</p>
+
+<h3>Creating Your First Post</h3>
+
+<p>Now that your site is running, you can start creating content. Jekyll makes it easy to add new blog posts and pages.</p>
+
+<h4>Post File Structure</h4>
+
+<p>Blog posts should be placed in the <code>_posts</code> directory with a filename following the format: <code>YYYY-MM-DD-title.md</code>. The date prefix is important for Jekyll to recognize and process the post correctly.</p>
+
+<h4>Front Matter</h4>
+
+<p>Each post needs front matter at the top, enclosed in triple dashes. This YAML front matter contains metadata about the post, such as title, date, and layout.</p>
+
+<h4>Writing Content</h4>
+
+<p>Write your content in Markdown below the front matter. Use headings to structure your content, and tocbot will automatically generate a table of contents from these headings.</p>
+
+<h2>About Tocbot</h2>
+
+<p>Tocbot is a lightweight JavaScript library that automatically generates a table of contents from the headings on your page. It's designed to be simple, fast, and highly customizable.</p>
+
+<h3>How Tocbot Works</h3>
+
+<p>Tocbot scans your page for headings (h1 through h6) and creates a hierarchical table of contents. It then provides smooth scrolling navigation and highlights the currently active section as you scroll through the content.</p>
+
+<h4>Automatic Detection</h4>
+
+<p>Tocbot automatically detects all headings within a specified container. You can configure which heading levels to include and how the table of contents should be structured.</p>
+
+<h4>Dynamic Updates</h4>
+
+<p>As you scroll through the page, tocbot dynamically updates the active link in the table of contents, making it easy to see which section you're currently reading.</p>
+
+<h4>Smooth Scrolling</h4>
+
+<p>When you click a link in the table of contents, tocbot smoothly scrolls to that section. The scroll offset can be customized to account for fixed headers or other page elements.</p>
+
+<h3>Tocbot Configuration</h3>
+
+<p>Tocbot offers extensive configuration options that allow you to customize its behavior to match your site's needs.</p>
+
+<h4>Heading Selectors</h4>
+
+<p>You can specify which heading levels to include in the table of contents. For example, you might only want h2 and h3 headings, or you might want all heading levels from h1 to h6.</p>
+
+<h4>Scroll Offset</h4>
+
+<p>The scroll offset determines how far from the top of the viewport the target heading should be positioned when clicked. This is useful when you have a fixed header that would otherwise cover the heading.</p>
+
+<h4>Collapsible Sections</h4>
+
+<p>Tocbot can be configured to create collapsible sections in the table of contents, allowing users to expand or collapse subsections as needed.</p>
+
+<h2>Content Structure</h2>
+
+<p>Understanding how to structure your content is crucial for getting the most out of tocbot. Well-structured content with proper heading hierarchy makes navigation intuitive and effective.</p>
+
+<h3>Heading Hierarchy</h3>
+
+<p>Maintain a logical heading hierarchy in your content. Start with h1 for the main title, use h2 for major sections, h3 for subsections, and so on. Don't skip heading levels (e.g., don't go from h2 directly to h4).</p>
+
+<h4>Best Practices</h4>
+
+<p>Follow these best practices when structuring your content with headings:</p>
+
+<ul>
+    <li>Use only one h1 per page</li>
+    <li>Maintain consistent heading levels</li>
+    <li>Use descriptive heading text</li>
+    <li>Keep heading text concise but meaningful</li>
+</ul>
+
+<h3>Content Organization</h3>
+
+<p>Organize your content into logical sections that flow naturally. Each section should have a clear purpose and contribute to the overall narrative or information architecture of the page.</p>
+
+<h4>Section Length</h4>
+
+<p>While there's no hard rule about section length, aim for sections that are substantial enough to provide value but not so long that they become overwhelming. Break up very long sections into smaller subsections.</p>
+
+<h4>Visual Hierarchy</h4>
+
+<p>Use heading levels to create a visual hierarchy that guides readers through your content. Major topics should use higher-level headings, while subtopics use lower-level headings.</p>
+
+<h2>Customization Options</h2>
+
+<p>This Jekyll site is highly customizable. You can modify various aspects of the site's appearance and functionality to match your preferences or brand identity.</p>
+
+<h3>Styling Customization</h3>
+
+<p>The site's styling can be customized through the CSS files. Modify colors, fonts, spacing, and layout to create a unique look and feel.</p>
+
+<h4>Color Scheme</h4>
+
+<p>Update the color scheme in the CSS file to match your brand or personal preferences. The current design uses a modern, professional color palette that works well for most content types.</p>
+
+<h4>Typography</h4>
+
+<p>Customize fonts, font sizes, and line heights to improve readability and match your design aesthetic. The current setup uses system fonts for optimal performance and cross-platform consistency.</p>
+
+<h3>Layout Customization</h3>
+
+<p>Modify the layout templates to change how content is structured and displayed. The default layout includes a header, main content area, sidebar for the table of contents, and footer.</p>
+
+<h4>Header and Navigation</h4>
+
+<p>Customize the header and navigation menu to include links to important pages or sections of your site. You can add more navigation items or modify the existing ones.</p>
+
+<h4>Sidebar Configuration</h4>
+
+<p>The sidebar containing the table of contents can be positioned, styled, and configured to match your design preferences. On mobile devices, it automatically adjusts to maintain usability.</p>
+
+<h2>Advanced Usage</h2>
+
+<p>Once you're comfortable with the basics, you can explore advanced features and customization options to further enhance your site.</p>
+
+<h3>Plugin Integration</h3>
+
+<p>Jekyll supports a wide variety of plugins that can extend functionality. The current setup includes jekyll-feed for RSS feeds and jekyll-sitemap for search engine optimization.</p>
+
+<h4>Adding New Plugins</h4>
+
+<p>To add new plugins, include them in your Gemfile and _config.yml. Make sure to follow the plugin's documentation for proper configuration and usage.</p>
+
+<h3>Performance Optimization</h3>
+
+<p>Static sites generated by Jekyll are inherently fast, but there are additional optimizations you can implement to further improve performance.</p>
+
+<h4>Asset Optimization</h4>
+
+<p>Optimize images, minify CSS and JavaScript, and use efficient asset loading strategies to ensure your site loads quickly for all users.</p>
+
+<h4>Caching Strategies</h4>
+
+<p>Implement appropriate caching strategies for your hosting environment. Static sites work excellently with CDN caching, which can dramatically improve load times for users around the world.</p>
+
+<h2>Conclusion</h2>
+
+<p>This Jekyll site with tocbot.js integration provides a powerful platform for creating content-rich websites with excellent navigation capabilities. Whether you're creating a blog, documentation site, or personal website, the combination of Jekyll's simplicity and tocbot's navigation features creates an optimal user experience.</p>
+
+<p>Start exploring the various sections using the table of contents on the right, and see how tocbot makes navigating long-form content effortless and intuitive.</p>

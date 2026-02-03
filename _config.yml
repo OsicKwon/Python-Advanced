@@ -1,39 +1,24 @@
-title: Advanced Python with AI
-author: Osic Kwon
-email: osic.kwon@gmail.com
-description: >
-  This is a demo page for minima-reboot, a bootstrap-based rewrite of Jekyll's
-  default minima theme. It is simple, lightweight, and responsive.
-  You can use it with your GitHub Pages site by adding the line
-  "theme: aterenin/minima-reboot" to _config.yml.
+# Site settings
+title: "My Jekyll Site2"
+description: "A simple Jekyll site with tocbot"
+url: "" # the base hostname & protocol for your site
+baseurl: "" # subpath of your site, e.g. /blog
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-paginate
-  - jekyll-feed
-  - jekyll-redirect-from
-
-minima_reboot:
-  date_format: "%b %-d, %Y"
-  date_format_short: "%b %-d"
-
-header_pages:
-- about.md
-- posts.md
-- github.md
-
-footer_icons:
-# - username: aterenin/minima-reboot/
-- username: OsicKwon/Python-Advanced/
-  # url: https://github.com/aterenin/minima-reboot/
-  url: https://github.com/OsicKwon/Python-Advanced/
-  icon: icon-github.svg
-
-paginate: 5
-
+# Build settings
 markdown: kramdown
+kramdown:
+  auto_ids: true
+  toc_levels: 1..6
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
 
+# Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
-  - minima-reboot.gemspec
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
