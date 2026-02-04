@@ -3,5 +3,6 @@ Gemfile.lock
 _site/
 .sass-cache
 .jekyll-cache
-*/*.org~
+*.org~
 /.history
+/_posts/refactoring/refactoring.org~

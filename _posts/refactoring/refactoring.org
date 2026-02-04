@@ -73,6 +73,7 @@ def validate_password(password):
 # eval: (setq-local imenu-list-size 0.25)
 # eval: (setq-local imenu-list-position 'left)
 # eval: (olivetti-set-width 0.99)
+# eval: (org-num-mode)
 # find-file-hook: evil-normal-state
 # End:
 
