@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
-    
+
     <!-- Tocbot CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.21.0/dist/tocbot.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    
+
     <!-- Tocbot CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tocbot@4.21.0/dist/tocbot.css">
 </head>
@@ -29,7 +29,7 @@
             <article class="content">
                 {{ content }}
             </article>
-            
+
             <aside class="toc-wrapper">
                 <div class="toc" id="toc"></div>
             </aside>
@@ -42,7 +42,6 @@
 
     <!-- Tocbot JS -->
     <script src="https://cdn.jsdelivr.net/npm/tocbot@4.21.0/dist/tocbot.min.js"></script>
-    
     <!-- Initialize Tocbot -->
     <script src="{{ site.baseurl }}/assets/js/tocbot-init.js"></script>
 </body>

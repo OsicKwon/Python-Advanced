@@ -8,7 +8,7 @@
 #+STARTUP: indent show2levels inlineimages
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
-#+EXPORT_FILE_NAME: ./test.md
+#+EXPORT_FILE_NAME: ./2026-02-04-__all__.md
 
 * refactoring
 
