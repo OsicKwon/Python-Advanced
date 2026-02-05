@@ -1,4 +1,4 @@
-#+TITLE: __all__
+#+TITLE: __all__ attribute
 #+DATE:<2026-02-04 Wed>
 #+AUTHOR: Osic Kwon
 #+EMAIL: osic.kwon@google.com
@@ -8,47 +8,22 @@
 #+STARTUP: indent show2levels inlineimages
 #+SELECT_TAGS: export
 #+EXCLUDE_TAGS: noexport
-#+EXPORT_FILE_NAME: ./2026-02-04-all_dunder_method.md
+#+EXPORT_FILE_NAME: ./2026-02-04-__all__attribute.md
 
-* refactoring
-
-#+NAME: refactoring
-#+CAPTION: This is a caption
-#+ATTR_ORG: :width 500
-#+ATTR_HTML: :width 600
-[[./img/abstract_override.png]]
-# for markdown, add {width=600} in output markdown:
+* __all__ attribute
 
 
-** extract magic numbers & strings
-# source: Grok
+** what is __all__ attribute?
 
-#+NAME: magic_number_bad
-#+BEGIN_SRC python :cache no :exports both :results output :session abstract_override
-def validate_password(password):
-    if len(password) > 7:  # What's 7? Unclear!
-        raise ValueError("Password too long")
-    return True
-#+END_SRC
+In Python, the `__all__` attribute is a special variable that can be defined in a module to control what is imported when a user performs a wildcard import using the syntax `from module_name import *`. By
 
-#+RESULTS: case
+** References
 
-#+NAME: magic_number_good
-#+BEGIN_SRC python :cache no :exports both :results output :session abstract_override
-MAX_PASSWORD_LENGTH = 7  # Maximum allowed length for security
+- https://labex.io/tutorials/python-how-to-use-all-in-python-modules-437148
+- https://codemia.io/knowledge-hub/path/what_does___all___mean_in_python
+- https://www.esparkinfo.com/qanda/python/what-does-all-mean-in-python
+- https://stackoverflow.com/questions/44834/what-does-all-mean-in-python
 
-def validate_password(password):
-    if len(password) > MAX_PASSWORD_LENGTH:
-        raise ValueError("Password too long")
-    return True
-#+END_SRC
-
-#+RESULTS: magic_number_good
-
-
-* References
-
-#
 
 * ==CONFIG==                                                        :noexport:
 :PROPERTIES:
@@ -73,11 +48,11 @@ def validate_password(password):
 # eval: (setq-local imenu-list-size 0.25)
 # eval: (setq-local imenu-list-position 'left)
 # eval: (olivetti-set-width 0.99)
-# eval: (org-num-mode)
 # find-file-hook: evil-normal-state
 # End:
 
 # eval: (org-babel-execute-buffer)  # run all code block except for text; For the text block use ':eval no'
+# eval: (org-num-mode)
 
 _EOF_
 
