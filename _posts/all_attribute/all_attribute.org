@@ -13,7 +13,7 @@
 * __all__ attribute
 
 
-** what is __all__ attribute?
+** what is '__all__' attribute?
 
 In Python, the `__all__` attribute is a special variable that can be defined in a module to control what is imported when a user performs a wildcard import using the syntax `from module_name import *`. By
 
